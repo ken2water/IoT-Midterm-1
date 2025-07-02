@@ -12,10 +12,12 @@
 #include "Adafruit_SSD1306.h"
 #include "Adafruit_GFX.h"
 #include "IoTClassroom_CNM.h"
+#include "Button.h"
 
 Encoder myEnc(D8,D9);
 const int OLED_RESET=-1;
 Adafruit_SSD1306 display(OLED_RESET);
+Button encBut(D16);
 
 
 int wemoNum;
@@ -24,6 +26,7 @@ int menu;
 int bright;
 int color;
 int encoderButt;
+
 int newPosition;
 void selection(int  menuNum);
 
@@ -68,7 +71,7 @@ void loop(){
   newPosition=0;
  }
 Serial.printf("%i   ", newPosition);
-Serial.printf("%i",encoderButt);
+Serial.printf("%i\n",encoderButt);
 switch (menu){
   case 0: //menu 0, manual or automatic selection
   if (newPosition %2 ==0){ //MANUAL
@@ -426,7 +429,7 @@ case 5: //Menu 5 WEMO ON/OFF return
 break;
 
 case 6: //MENU 6 HUE configure
-  if (newPosition %5==0){//Hue brightness configured 
+  if (newPosition %6==0){//Hue brightness configured 
     display.setCursor(0,0);
     display.setTextSize(1);
     display.setTextColor(WHITE);
@@ -434,9 +437,23 @@ case 6: //MENU 6 HUE configure
     display.setTextColor(BLACK,WHITE);
     display.printf("Bright %i",bright);// need to set the encoder to be able to adjust brightness 
     display.setTextColor(WHITE);
-    display.printf("\nColor  %i\nON/OFF\nRETURN",color);
+    display.printf("\nColor  %i\nON/OFF\nENTER\nRETURN",color);
+    // encBut = digitalRead(D16);
+    if (encBut.isClicked()){
+      Serial.printf("change bright");
+      while(!encBut.isClicked()){
+        bright = myEnc.read();
+        display.setTextSize(1);
+        display.setTextColor(WHITE);
+        display.printf("HUE #%i\n",hueNum);
+        display.setTextColor(BLACK,WHITE);
+        display.printf("Bright %i",bright);// need to set the encoder to be able to adjust brightness 
+        display.setTextColor(WHITE);
+        display.printf("\nColor  %i\nON/OFF\nENTER\nRETURN",color);
+      }
     }
-  if (newPosition %5==1){//Color configured 
+    }
+  if (newPosition %6==1){//Color configured 
     display.setCursor(0,0);
     display.setTextSize(1);
     display.setTextColor(WHITE);
@@ -444,9 +461,9 @@ case 6: //MENU 6 HUE configure
     display.setTextColor(BLACK,WHITE);
     display.printf("Color  %i",color); // need to set the encoder to be able to adjust color
     display.setTextColor(WHITE);
-    display.printf("\nON/OFF\nRETURN");
+    display.printf("\nON/OFF\nENTER\nRETURN");
     }
-  if (newPosition %5==2){//ONconfigured 
+  if (newPosition %6==2){//ONconfigured 
     display.setCursor(0,0);
     display.setTextSize(1);
     display.setTextColor(WHITE);
@@ -454,42 +471,59 @@ case 6: //MENU 6 HUE configure
     display.setTextColor(BLACK,WHITE);
     display.printf("ON"); // need to set the encoder to be able to adjust color
     display.setTextColor(WHITE);
-    display.printf("/OFF\nRETURN");
+    display.printf("/OFF\nENTER\nRETURN");
   }
-  if (newPosition %5==3){//OFFconfigured 
+  if (newPosition %6==3){//OFFconfigured 
     display.setCursor(0,0);
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.printf("HUE #%i\nBright %i\nColor  %i\nON/",hueNum,bright,color); 
     display.setTextColor(BLACK,WHITE);
-    display.printf("OFF"); // need to set the encoder to be able to adjust color
+    display.printf("OFF"); 
     display.setTextColor(WHITE);
-    display.printf("\nRETURN");
-  }
-  if (newPosition %5==4){//RETURN configured 
+    display.printf("\nENTER\nRETURN");
+    encoderButt = digitalRead(D16);
+    if (encoderButt==1){
+      setHue(hueNum,false,color,bright,255);
+    }
+   }
+  if (newPosition %6==4){//ENTER configured 
     display.setCursor(0,0);
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.printf("HUE #%i\nBright %i\nColor  %i\nON/OFF\n",hueNum,bright,color); 
     display.setTextColor(BLACK,WHITE);
+    display.printf("ENTER"); 
+    display.setTextColor(WHITE);
+    display.printf("\nRETURN");
+    encoderButt = digitalRead(D16);
+    if (encoderButt==1){
+      setHue(hueNum,true,color,bright,255);
+    }
+   }
+  if (newPosition %6==5){//RETURN configured 
+    display.setCursor(0,0);
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.printf("HUE #%i\nBright %i\nColor  %i\nON/OFF\nENTER\n",hueNum,bright,color); 
+    display.setTextColor(BLACK,WHITE);
     display.printf("RETURN"); 
     selection(3);
-   }
+    }
     display.display();
     display.clearDisplay();
-break;
-
-
-
+break; 
 }
+
 }
 
 //functions 
 void selection(int menuNum){
-     encoderButt = digitalRead(D16);
+  encoderButt = digitalRead(D16);
      if (encoderButt==1){
-      menu = menuNum;
+            menu = menuNum;
       }
     }
+  
 
   
