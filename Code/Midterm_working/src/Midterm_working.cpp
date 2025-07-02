@@ -442,6 +442,8 @@ case 6: //MENU 6 HUE configure
     if (encBut.isClicked()){
       Serial.printf("change bright");
       while(!encBut.isClicked()){
+        display.clearDisplay();
+        display.setCursor(0,0);
         bright = myEnc.read();
         display.setTextSize(1);
         display.setTextColor(WHITE);
@@ -450,6 +452,7 @@ case 6: //MENU 6 HUE configure
         display.printf("Bright %i",bright);// need to set the encoder to be able to adjust brightness 
         display.setTextColor(WHITE);
         display.printf("\nColor  %i\nON/OFF\nENTER\nRETURN",color);
+        display.display();
       }
     }
     }
