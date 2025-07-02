@@ -8,28 +8,44 @@
 
 // Include Particle Device OS APIs
 #include "Particle.h"
+#include "encoder.h"
+
 
 // Let Device OS manage the connection to the Particle Cloud
-SYSTEM_MODE(AUTOMATIC);
+SYSTEM_MODE(SEMI_AUTOMATIC);
 
-// Run the application and system concurrently in separate threads
-SYSTEM_THREAD(ENABLED);
+int menu;
 
-// Show system, cloud connectivity, and application logs over USB
-// View logs with CLI using 'particle serial monitor --follow'
-SerialLogHandler logHandler(LOG_LEVEL_INFO);
-
-// setup() runs once, when the device is first turned on
 void setup() {
-  // Put initialization like pinMode and begin functions here
-}
+  // Im trying to figure out the logic to use in switch cases. used for menu selection with smart device
+  //encoder is used to navigate and select values for menu  
 
-// loop() runs over and over again, as quickly as it can execute.
+}
 void loop() {
-  // The core of your code will likely live here.
+  //enocder is set to odd and even, even set to manual odd is set to automatic 
+  switch (menu)
+  {
+  case 0:
+    if (myEnc) encoder is set to even (%=0)
+    //serial print Manual highlighted with reverse text 
+    //print automatic not highlighted 
 
-  // Example: Publish event to cloud every 10 seconds. Uncomment the next 3 lines to try it!
-  // Log.info("Sending Hello World to the cloud!");
-  // Particle.publish("Hello world!");
-  // delay( 10 * 1000 ); // milliseconds and blocking - see docs for more info!
+    //if encoder is set to Even (%=0) && switch is pressed 
+      //serial print 1. wemo
+      //serial print 2. Hue
+      //serial print 3. All
+
+  
+    
+    break;
+
+  case automatic: 
+    //If encoder is set to automatic 
+    //print manual not highlighted 
+    //print automatic highlighted 
+  
+  default:
+    break;
+  }
 }
+ if 
