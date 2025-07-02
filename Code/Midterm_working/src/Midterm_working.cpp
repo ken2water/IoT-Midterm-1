@@ -423,9 +423,9 @@ case 5: //Menu 5 WEMO ON/OFF return
     display.setTextColor(BLACK,WHITE);
     display.printf("\nReturn");
     selection(2);
-    }
-    display.display();
-    display.clearDisplay();
+  }
+  display.display();
+  display.clearDisplay();
 break;
 
 case 6: //MENU 6 HUE configure
@@ -438,13 +438,18 @@ case 6: //MENU 6 HUE configure
     display.printf("Bright %i",bright);// need to set the encoder to be able to adjust brightness 
     display.setTextColor(WHITE);
     display.printf("\nColor  %i\nON/OFF\nENTER\nRETURN",color);
-    // encBut = digitalRead(D16);
     if (encBut.isClicked()){
       Serial.printf("change bright");
       while(!encBut.isClicked()){
         display.clearDisplay();
         display.setCursor(0,0);
         bright = myEnc.read();
+        if (bright>=260){
+          bright = 255;
+        }
+        if(bright<0){
+          bright=0;
+        }
         display.setTextSize(1);
         display.setTextColor(WHITE);
         display.printf("HUE #%i\n",hueNum);
@@ -465,7 +470,31 @@ case 6: //MENU 6 HUE configure
     display.printf("Color  %i",color); // need to set the encoder to be able to adjust color
     display.setTextColor(WHITE);
     display.printf("\nON/OFF\nENTER\nRETURN");
-    }
+    if (encBut.isClicked()){
+          Serial.printf("change color");
+      while(!encBut.isClicked()){
+        display.setCursor(0,0);
+        display.setTextSize(1);
+        display.setTextColor(WHITE);
+        color = myEnc.read();
+        color = color *180;
+        display.printf("HUE #%i\nBright %i\n",hueNum,bright);
+        display.setTextColor(BLACK,WHITE);
+        display.printf("Color  %i",color); // need to set the encoder to be able to adjust color
+        display.setTextColor(WHITE);
+        display.printf("\nON/OFF\nENTER\nRETURN");
+        
+        if(color < 0){
+          color = 0;
+        }
+        if(color > 65500){
+          color = 65500;
+        }
+        display.display();
+        display.clearDisplay();
+      }
+      }
+    } 
   if (newPosition %6==2){//ONconfigured 
     display.setCursor(0,0);
     display.setTextSize(1);
@@ -475,6 +504,11 @@ case 6: //MENU 6 HUE configure
     display.printf("ON"); // need to set the encoder to be able to adjust color
     display.setTextColor(WHITE);
     display.printf("/OFF\nENTER\nRETURN");
+    encoderButt = digitalRead(D16);
+    if (encoderButt==1){
+      Serial.printf("color %i, bright %i\n",color,bright);
+      setHue(hueNum,true,color,bright,255);
+    }
   }
   if (newPosition %6==3){//OFFconfigured 
     display.setCursor(0,0);
@@ -501,9 +535,10 @@ case 6: //MENU 6 HUE configure
     display.printf("\nRETURN");
     encoderButt = digitalRead(D16);
     if (encoderButt==1){
+      Serial.printf("color %i, bright %i\n",color,bright);
       setHue(hueNum,true,color,bright,255);
     }
-   }
+  }
   if (newPosition %6==5){//RETURN configured 
     display.setCursor(0,0);
     display.setTextSize(1);
