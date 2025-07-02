@@ -16,7 +16,7 @@ void setup() {
   Serial.println("Basic Encoder Test:");
 }
 
-long oldPosition  = -999;
+long oldPosition  = -999=;
 
 void loop() {
   long newPosition = myEnc.read();
