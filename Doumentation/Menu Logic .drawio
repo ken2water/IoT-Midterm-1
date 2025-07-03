@@ -1,0 +1,232 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="27.2.0">
+  <diagram name="Page-1" id="q4prmz-4znX1ILEkfg3p">
+    <mxGraphModel dx="2697" dy="1390" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iuZR_fLdwWflNUms48DC-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-1" target="iuZR_fLdwWflNUms48DC-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-60" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-1" target="iuZR_fLdwWflNUms48DC-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-1" value="Select mode&amp;nbsp;&lt;div&gt;manual/automatic&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-2" target="iuZR_fLdwWflNUms48DC-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-2" value="Manual mode selected&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-4" target="iuZR_fLdwWflNUms48DC-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-4" target="iuZR_fLdwWflNUms48DC-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-4" target="iuZR_fLdwWflNUms48DC-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-4" value="Select Devices to control&amp;nbsp;&lt;div&gt;1. Wemo&lt;/div&gt;&lt;div&gt;2. Hue&lt;/div&gt;&lt;div&gt;3. All&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-6" target="iuZR_fLdwWflNUms48DC-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-6" value="Wemo Device selected&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-8" target="iuZR_fLdwWflNUms48DC-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-8" value="Select Wemo Devices to Connect&amp;nbsp;&lt;div&gt;0,1,2,3,4,5&lt;/div&gt;&lt;div&gt;All&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-10" target="iuZR_fLdwWflNUms48DC-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-10" value="Wemo Device N Selected&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-12" target="iuZR_fLdwWflNUms48DC-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-12" value="Power ON or OFF" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="890" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-16" target="iuZR_fLdwWflNUms48DC-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-16" value="Hue Lights selected&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-18" target="iuZR_fLdwWflNUms48DC-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-18" value="Select Hue Lights&amp;nbsp;&lt;div&gt;1,2,3,4,5,6,&lt;/div&gt;&lt;div&gt;All&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-20" target="iuZR_fLdwWflNUms48DC-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-20" value="Hue light N selected&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="1030" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-22" target="iuZR_fLdwWflNUms48DC-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-22" target="iuZR_fLdwWflNUms48DC-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-22" value="Select Feature to control:&lt;div&gt;Brightness, Color, Power&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="890" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-26" target="iuZR_fLdwWflNUms48DC-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-26" value="Color Selected&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1030" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-28" target="iuZR_fLdwWflNUms48DC-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-28" value="Encode used to control Color" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-30" target="iuZR_fLdwWflNUms48DC-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="940" y="1030" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-30" value="Brightness Selected&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1030" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-32" target="iuZR_fLdwWflNUms48DC-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-32" value="Use encoder to control Brightness" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-37" target="iuZR_fLdwWflNUms48DC-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-37" value="Power selected" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="1030" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-38" target="iuZR_fLdwWflNUms48DC-52">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="1350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-38" value="use BUTTON to control power" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="1170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-40" target="iuZR_fLdwWflNUms48DC-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-40" value="Power sected" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1030" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-42" target="iuZR_fLdwWflNUms48DC-52">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="1350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-42" value="use BUTTON to control power&amp;nbsp;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-44" target="iuZR_fLdwWflNUms48DC-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-44" value="All Device selected" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-46" target="iuZR_fLdwWflNUms48DC-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-46" value="Select Power State&lt;div&gt;on/off&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-48" target="iuZR_fLdwWflNUms48DC-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-48" value="Power state ON selected&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-50" target="iuZR_fLdwWflNUms48DC-52">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="1350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-50" value="Use BUTTON to select Power" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="890" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-52" value="Print Status&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-59" target="iuZR_fLdwWflNUms48DC-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-59" value="Automatic Mode selected&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-61" target="iuZR_fLdwWflNUms48DC-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-61" target="iuZR_fLdwWflNUms48DC-69">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-61" target="iuZR_fLdwWflNUms48DC-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-61" value="Select Feature&amp;nbsp;&lt;div&gt;1. All Off&lt;/div&gt;&lt;div&gt;2. Rise and shine&amp;nbsp;&lt;/div&gt;&lt;div&gt;3. Point and shoot&amp;nbsp;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-68" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-65" target="iuZR_fLdwWflNUms48DC-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-65" value="All Off selected" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-67" value="All devices off&amp;nbsp;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-69" target="iuZR_fLdwWflNUms48DC-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-69" value="Rise and shine slected&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-71" value="All lights turn off,&amp;nbsp;&lt;div&gt;slowly brighten on Red, yell and orange lights. Once fully bright Wemo devices turn on&amp;nbsp;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-76" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iuZR_fLdwWflNUms48DC-73" target="iuZR_fLdwWflNUms48DC-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-73" value="Point and Shoot selected&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1770" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iuZR_fLdwWflNUms48DC-75" value="Use glove and gyroscope to&amp;nbsp;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1770" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

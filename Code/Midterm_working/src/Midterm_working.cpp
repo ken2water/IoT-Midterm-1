@@ -43,13 +43,13 @@ void setup() {
   pinMode(D16,INPUT_PULLDOWN);
   WiFi.on();
   WiFi.clearCredentials();
-  WiFi.setCredentials("IoTNetwork");//logingg into the network
+  WiFi.setCredentials("IoTNetwork");//logging into the network
   WiFi.connect();
     while(WiFi.connecting()){
       display.setCursor(0,0);
       display.setTextSize(1);
       display.setTextColor(WHITE);
-      display.printf("Loging into the Network...\n");
+      display.printf("Logging into\n the Network...\n");
       display.display();
     }
   display.printf("Connected\n Welcome to the show");
