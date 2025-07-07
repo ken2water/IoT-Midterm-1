@@ -1,18 +1,19 @@
-// /* 
-//  * Project Encoder troubleshoot
-//  * Author: Kenneth
-//  * Date: 6_30
-//  * For comprehensive documentation and examples, please visit:
-//  * https://docs.particle.io/firmware/best-practices/firmware-template/
-//  */
+// // /* 
+// //  * Project Encoder troubleshoot
+// //  * Author: Kenneth
+// //  * Date: 6_30
+// //  * For comprehensive documentation and examples, please visit:
+// //  * https://docs.particle.io/firmware/best-practices/firmware-template/
+// //  */
 
-// // Include Particle Device OS APIs
+// // // Include Particle Device OS APIs
 #include "Particle.h"
 #include <Encoder.h>
 #include "Adafruit_SSD1306.h"
 #include "Adafruit_GFX.h"
 #include "IoTClassroom_CNM.h"
 #include "Button.h"
+#include "Adafruit_BME280.h"
 
 Encoder myEnc(D8,D9);
 const int OLED_RESET=-1;
@@ -29,7 +30,7 @@ int encoderButt;
 
 int newPosition;
 void selection(int  menuNum);
-
+void ALLOFF ();
 // // Let Device OS manage the connection to the Particle Cloud
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
@@ -82,7 +83,7 @@ void loop(){
       display.printf("Manual\n");
       display.setTextColor(BLACK,WHITE);
       display.printf("Automatic");
-      // TODOMenu to displayed later JUMP TO AUTOMATIC MENU
+      selection(7);
     }
     display.display(); //reverse clear, reduced flashing when placed here in code
     display.clearDisplay();
@@ -356,7 +357,7 @@ void loop(){
         delay(500);
         }
       }
-     
+      
     }
     if (newPosition %3 ==2){//ALL RETURN
       display.setTextSize(3);
@@ -420,28 +421,9 @@ void loop(){
     display.clearDisplay();
     break;
 
-  case 6: //MENU 6 HUE configure
-  if (newPosition %6==0){//Hue brightness configured 
-    display.setCursor(0,0);
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.printf("HUE #%i\n",hueNum);
-    display.setTextColor(BLACK,WHITE);
-    display.printf("Bright %i",bright);// need to set the encoder to be able to adjust brightness 
-    display.setTextColor(WHITE);
-    display.printf("\nColor  %i\nON/OFF\nENTER\nRETURN",color);
-    if (encBut.isClicked()){
-      Serial.printf("change bright");
-    while(!encBut.isClicked()){
-      display.clearDisplay();
+    case 6: //MENU 6 HUE configure
+    if (newPosition %6==0){//Hue brightness configured 
       display.setCursor(0,0);
-      bright = myEnc.read();
-      if (bright>=260){
-        bright = 255;
-      }
-      if(bright<0){
-        bright=0;
-      }
       display.setTextSize(1);
       display.setTextColor(WHITE);
       display.printf("HUE #%i\n",hueNum);
@@ -449,108 +431,252 @@ void loop(){
       display.printf("Bright %i",bright);// need to set the encoder to be able to adjust brightness 
       display.setTextColor(WHITE);
       display.printf("\nColor  %i\nON/OFF\nENTER\nRETURN",color);
-      display.display();
-    }
-  }
-  }
-  if (newPosition %6==1){//Color configured 
-    display.setCursor(0,0);
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.printf("HUE #%i\nBright %i\n",hueNum,bright);
-    display.setTextColor(BLACK,WHITE);
-    display.printf("Color  %i",color); // need to set the encoder to be able to adjust color
-    display.setTextColor(WHITE);
-    display.printf("\nON/OFF\nENTER\nRETURN");
-    if (encBut.isClicked()){
-      Serial.printf("change color");
+      if (encBut.isClicked()){
+        Serial.printf("change bright");
       while(!encBut.isClicked()){
+        display.clearDisplay();
         display.setCursor(0,0);
+        bright = myEnc.read();
+        if (bright>=260){
+          bright = 255;
+        }
+        if(bright<0){
+          bright=0;
+        }
         display.setTextSize(1);
         display.setTextColor(WHITE);
-        color = myEnc.read();
-        color = color *180;
-        display.printf("HUE #%i\nBright %i\n",hueNum,bright);
+        display.printf("HUE #%i\n",hueNum);
         display.setTextColor(BLACK,WHITE);
-        display.printf("Color  %i",color); // need to set the encoder to be able to adjust color
+        display.printf("Bright %i",bright);// need to set the encoder to be able to adjust brightness 
         display.setTextColor(WHITE);
-        display.printf("\nON/OFF\nENTER\nRETURN");
-        if(color < 0){
-          color = 0;
-        }
-        if(color > 65500){
-          color = 65500;
-        }
+        display.printf("\nColor  %i\nON/OFF\nENTER\nRETURN",color);
         display.display();
-        display.clearDisplay();
       }
     }
-  } 
-  if (newPosition %6==2){//ONconfigured 
-    display.setCursor(0,0);
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.printf("HUE #%i\nBright %i\nColor  %i\n",hueNum,bright,color);
-    display.setTextColor(BLACK,WHITE);
-    display.printf("ON"); // need to set the encoder to be able to adjust color
-    display.setTextColor(WHITE);
-    display.printf("/OFF\nENTER\nRETURN");
-    encoderButt = digitalRead(D16);
-    if (encoderButt==1){
-      Serial.printf("color %i, bright %i\n",color,bright);
-      setHue(hueNum,true,color,bright,255);
     }
-  }
-  if (newPosition %6==3){//OFFconfigured 
-    display.setCursor(0,0);
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.printf("HUE #%i\nBright %i\nColor  %i\nON/",hueNum,bright,color); 
-    display.setTextColor(BLACK,WHITE);
-    display.printf("OFF"); 
-    display.setTextColor(WHITE);
-    display.printf("\nENTER\nRETURN");
-    encoderButt = digitalRead(D16);
-    if (encoderButt==1){
-      setHue(hueNum,false,color,bright,255);
+    if (newPosition %6==1){//Color configured 
+      display.setCursor(0,0);
+      display.setTextSize(1);
+      display.setTextColor(WHITE);
+      display.printf("HUE #%i\nBright %i\n",hueNum,bright);
+      display.setTextColor(BLACK,WHITE);
+      display.printf("Color  %i",color); // need to set the encoder to be able to adjust color
+      display.setTextColor(WHITE);
+      display.printf("\nON/OFF\nENTER\nRETURN");
+      if (encBut.isClicked()){
+        Serial.printf("change color");
+        while(!encBut.isClicked()){
+          display.setCursor(0,0);
+          display.setTextSize(1);
+          display.setTextColor(WHITE);
+          color = myEnc.read();
+          color = color *180;
+          display.printf("HUE #%i\nBright %i\n",hueNum,bright);
+          display.setTextColor(BLACK,WHITE);
+          display.printf("Color  %i",color); // need to set the encoder to be able to adjust color
+          display.setTextColor(WHITE);
+          display.printf("\nON/OFF\nENTER\nRETURN");
+          if(color < 0){
+            color = 0;
+          }
+          if(color > 65500){
+            color = 65500;
+          }
+          display.display();
+          display.clearDisplay();
+        }
+      }
+    } 
+    if (newPosition %6==2){//ONconfigured 
+      display.setCursor(0,0);
+      display.setTextSize(1);
+      display.setTextColor(WHITE);
+      display.printf("HUE #%i\nBright %i\nColor  %i\n",hueNum,bright,color);
+      display.setTextColor(BLACK,WHITE);
+      display.printf("ON"); // need to set the encoder to be able to adjust color
+      display.setTextColor(WHITE);
+      display.printf("/OFF\nENTER\nRETURN");
+      encoderButt = digitalRead(D16);
+      if (encoderButt==1){
+        Serial.printf("color %i, bright %i\n",color,bright);
+        setHue(hueNum,true,color,bright,255);
+      }
     }
-  }
-  if (newPosition %6==4){//ENTER configured 
-    display.setCursor(0,0);
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.printf("HUE #%i\nBright %i\nColor  %i\nON/OFF\n",hueNum,bright,color); 
-    display.setTextColor(BLACK,WHITE);
-    display.printf("ENTER"); 
-    display.setTextColor(WHITE);
-    display.printf("\nRETURN");
-    encoderButt = digitalRead(D16);
-    if (encoderButt==1){
-      Serial.printf("color %i, bright %i\n",color,bright);
-      setHue(hueNum,true,color,bright,255);
+    if (newPosition %6==3){//OFFconfigured 
+      display.setCursor(0,0);
+      display.setTextSize(1);
+      display.setTextColor(WHITE);
+      display.printf("HUE #%i\nBright %i\nColor  %i\nON/",hueNum,bright,color); 
+      display.setTextColor(BLACK,WHITE);
+      display.printf("OFF"); 
+      display.setTextColor(WHITE);
+      display.printf("\nENTER\nRETURN");
+      encoderButt = digitalRead(D16);
+      if (encoderButt==1){
+        setHue(hueNum,false,color,bright,255);
+      }
     }
-  }
-  if (newPosition %6==5){//RETURN configured 
-    display.setCursor(0,0);
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-    display.printf("HUE #%i\nBright %i\nColor  %i\nON/OFF\nENTER\n",hueNum,bright,color); 
-    display.setTextColor(BLACK,WHITE);
-    display.printf("RETURN"); 
-    selection(3);
+    if (newPosition %6==4){//ENTER configured 
+      display.setCursor(0,0);
+      display.setTextSize(1);
+      display.setTextColor(WHITE);
+      display.printf("HUE #%i\nBright %i\nColor  %i\nON/OFF\n",hueNum,bright,color); 
+      display.setTextColor(BLACK,WHITE);
+      display.printf("ENTER"); 
+      display.setTextColor(WHITE);
+      display.printf("\nRETURN");
+      encoderButt = digitalRead(D16);
+      if (encoderButt==1){
+        Serial.printf("color %i, bright %i\n",color,bright);
+        setHue(hueNum,true,color,bright,255);
+      }
+    }
+    if (newPosition %6==5){//RETURN configured 
+      display.setCursor(0,0);
+      display.setTextSize(1);
+      display.setTextColor(WHITE);
+      display.printf("HUE #%i\nBright %i\nColor  %i\nON/OFF\nENTER\n",hueNum,bright,color); 
+      display.setTextColor(BLACK,WHITE);
+      display.printf("RETURN"); 
+      selection(3);
+      }
+    display.display();
+    display.clearDisplay();
+    break; 
+    case 7: //Automatic functions 
+    if(newPosition %6==0){//start presentation
+      display.setCursor(0,0);
+      // display.setTextSize(2); 
+      display.setTextColor(WHITE);
+      // display.printf("AUTO\n");
+      display.setTextSize(1);
+      display.printf("Presentation\n");
+      display.setTextColor(BLACK,WHITE);
+      display.printf("   Start Presentation");
+      display.setTextColor(WHITE);
+      display.printf("   Cont.Presentation\n   End Presentation\nMorning Glory\nTemperature Read\nReturn");
+      encoderButt = digitalRead(D16);
+      if (encoderButt==1){
+        ALLOFF();
+        setHue(6, true, 10000,255,255);
+        }
+    }
+    if(newPosition %6==1){//continue presentation
+      display.setCursor(0,0);
+      // display.setTextSize(2);
+      display.setTextColor(WHITE);
+      // display.printf("AUTO\n");
+      display.setTextSize(1);
+      display.printf("Presentation\n   Start Presentation");
+      display.setTextColor(BLACK,WHITE);
+      display.printf("   Cont. Presentation");
+      display.setTextColor(WHITE);
+      display.printf("   End Presentation\nMorning Glory\nTemperature Read\nReturn");
+      encoderButt = digitalRead(D16);
+      if (encoderButt==1){
+        for(hueNum=0;hueNum<=6;hueNum++){
+          setHue(hueNum, true, 10000,255,255);
+          delay(1000);
+        }
+        for(wemoNum=0;wemoNum<=5;wemoNum++){
+          wemoWrite(wemoNum,HIGH);
+        }
+      }
+    }
+    if(newPosition %6==2){//end presentation
+      display.setCursor(0,0);
+      // display.setTextSize(2);
+      display.setTextColor(WHITE);
+      // display.printf("AUTO\n");
+      display.setTextSize(1);
+      display.printf("Presentation\n   Start Presentation   Cont. Presentation");
+      display.setTextColor(BLACK,WHITE);
+      display.printf("   End Presentation");
+      display.setTextColor(WHITE);
+      display.printf("\nMorning Glory\nTemperature Read\nReturn");
+      encoderButt = digitalRead(D16);
+      if (encoderButt==1){
+        ALLOFF();
+      }
+      
+    }
+    if(newPosition %6==3){//morning glory presentation 
+      display.setCursor(0,0);
+      // display.setTextSize(2);
+      display.setTextColor(WHITE);
+      // display.printf("AUTO\n");
+      display.setTextSize(1);
+      display.printf("Presentation\n   Start Presentation   Cont. Presentation   End Presentation\n");
+      display.setTextColor(BLACK,WHITE);
+      display.printf("Morning Glory");
+      display.setTextColor(WHITE);
+      display.printf("\nTemperature Read\nReturn");
+      encoderButt = digitalRead(D16);
+      if (encoderButt==1){
+        ALLOFF();
+        for(bright=1; bright <=255; bright+=50){
+          setHue(1, true, 3000, bright, 255);// bulb 1 to orange reddish
+          setHue(2, true, 1000, bright, 255); //bulb 2 redwine kinda color 
+          setHue(3, true, 8000, bright, 255); //bulb 3 to orange  
+          setHue(4, true,10000, bright, 255); //bulb 4 to carrotish 
+          setHue(5, true, 5000, bright, 255); //bulb 5 to red 
+          setHue(6, true, 2000, bright, 255); //bulb 6 to peach  
+          delay(3000);
+          }
+        for(wemoNum=0;wemoNum<=5;wemoNum++){
+          wemoWrite(wemoNum,HIGH);  
+        }   
+      }
+    }
+    if(newPosition %6==4){ //code in temperature read function 
+      display.setCursor(0,0);
+      // display.setTextSize(2);
+      display.setTextColor(WHITE);
+      // display.printf("AUTO\n");
+      display.setTextSize(1);
+      display.printf("Presentation\n   Start Presentation   Cont. Presentation   End Presentation\nMorning Glory\n");
+      display.setTextColor(BLACK,WHITE);
+      display.printf("Temperature Read");
+      display.setTextColor(WHITE);
+      display.printf("\nReturn");
+    }
+    if(newPosition %6==5){
+      display.setCursor(0,0);
+      // display.setTextSize(2);
+      display.setTextColor(WHITE);
+      // display.printf("AUTO\n");
+      display.setTextSize(1);
+      display.printf("Presentation\n   Start Presentation   Cont. Presentation   End Presentation\nMorning Glory\nTemperature Read\n");
+      display.setTextColor(BLACK,WHITE);
+      display.printf("Return");
+      selection(0);
     }
     display.display();
     display.clearDisplay();
-  break; 
+    break;
+  }
+
+
+
+
 }
-}
-//functions 
+// //functions 
 void selection(int menuNum){
   encoderButt = digitalRead(D16);
      if (encoderButt==1){
       menu = menuNum;
       }
 }
+void ALLOFF(){
+  for(wemoNum=0;wemoNum<=5;wemoNum++){   // set all lights to off
+    wemoWrite(wemoNum,LOW);
+  }
+  for(hueNum=1;hueNum<=6;hueNum++){
+    setHue(hueNum,false,0x008080,255,255);// chose a great color, max brightness, usually paired with all on
+    delay(100);
+    }
+}
+// }
   
 
   
