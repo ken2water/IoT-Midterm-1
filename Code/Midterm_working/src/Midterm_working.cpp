@@ -1,7 +1,7 @@
 // // /* 
-// //  * Project Encoder troubleshoot
-// //  * Author: Kenneth
-// //  * Date: 6_30
+// //  * Project Midterm working
+// //  * Author: Kenneth kinderwater  
+// //  * Date: 6_30 updated 7-7
 // //  * For comprehensive documentation and examples, please visit:
 // //  * https://docs.particle.io/firmware/best-practices/firmware-template/
 // //  */
@@ -18,6 +18,7 @@
 Encoder myEnc(D8,D9);
 const int OLED_RESET=-1;
 Adafruit_SSD1306 display(OLED_RESET);
+Adafruit_BME280 bme;
 Button encBut(D16);
 
 
@@ -27,13 +28,13 @@ int menu;
 int bright;
 int color;
 int encoderButt;
-
+bool status;
+int tempC;
+int tempF;
 int newPosition;
 void selection(int  menuNum);
 void ALLOFF ();
-// // Let Device OS manage the connection to the Particle Cloud
 SYSTEM_MODE(SEMI_AUTOMATIC);
-
 
 void setup() {
   Serial.begin(9600);
@@ -41,6 +42,13 @@ void setup() {
   display.display(); // show splashscreen
   delay(500);
   display.clearDisplay();
+  status = bme.begin(0x76);
+  if (status==false){
+    Serial.print("BME280 has failed to start");
+  }
+  else{
+    Serial.print("BME280 has engaged\n");
+  }
   pinMode(D16,INPUT_PULLDOWN);
   WiFi.on();
   WiFi.clearCredentials();
@@ -349,16 +357,9 @@ void loop(){
       display.printf("\nReturn");
       encoderButt = digitalRead(D16);
       if (encoderButt==1){
-        for(wemoNum=0;wemoNum<=5;wemoNum++){
-          wemoWrite(wemoNum,LOW);
-        }
-        for(hueNum=1;hueNum<=6;hueNum++){
-        setHue(hueNum,false,0x008080,255,255);// chose a great color, max brightness, usually paired with all on
-        delay(500);
+       ALLOFF();
         }
       }
-      
-    }
     if (newPosition %3 ==2){//ALL RETURN
       display.setTextSize(3);
       display.setTextColor(WHITE);
@@ -546,9 +547,7 @@ void loop(){
     case 7: //Automatic functions 
     if(newPosition %6==0){//start presentation
       display.setCursor(0,0);
-      // display.setTextSize(2); 
       display.setTextColor(WHITE);
-      // display.printf("AUTO\n");
       display.setTextSize(1);
       display.printf("Presentation\n");
       display.setTextColor(BLACK,WHITE);
@@ -563,9 +562,7 @@ void loop(){
     }
     if(newPosition %6==1){//continue presentation
       display.setCursor(0,0);
-      // display.setTextSize(2);
       display.setTextColor(WHITE);
-      // display.printf("AUTO\n");
       display.setTextSize(1);
       display.printf("Presentation\n   Start Presentation");
       display.setTextColor(BLACK,WHITE);
@@ -585,9 +582,7 @@ void loop(){
     }
     if(newPosition %6==2){//end presentation
       display.setCursor(0,0);
-      // display.setTextSize(2);
       display.setTextColor(WHITE);
-      // display.printf("AUTO\n");
       display.setTextSize(1);
       display.printf("Presentation\n   Start Presentation   Cont. Presentation");
       display.setTextColor(BLACK,WHITE);
@@ -598,7 +593,6 @@ void loop(){
       if (encoderButt==1){
         ALLOFF();
       }
-      
     }
     if(newPosition %6==3){//morning glory presentation 
       display.setCursor(0,0);
@@ -630,21 +624,41 @@ void loop(){
     }
     if(newPosition %6==4){ //code in temperature read function 
       display.setCursor(0,0);
-      // display.setTextSize(2);
       display.setTextColor(WHITE);
-      // display.printf("AUTO\n");
       display.setTextSize(1);
       display.printf("Presentation\n   Start Presentation   Cont. Presentation   End Presentation\nMorning Glory\n");
       display.setTextColor(BLACK,WHITE);
       display.printf("Temperature Read");
       display.setTextColor(WHITE);
       display.printf("\nReturn");
+      encoderButt = digitalRead(D16);
+      if (encoderButt==1){//reading temp and setting lights to display based off temp #automation
+        tempC = bme.readTemperature();
+        tempF = (9/5* tempC) +32;
+        Serial.printf("%i is your temp in F\n",tempF);
+        if (tempF >= 60){
+          for(hueNum=0;hueNum<=6;hueNum++){
+          setHue(hueNum, true, 0,255,255);
+          delay(1000);
+          }
+        }
+        if (tempF <=55){
+          for(hueNum=0;hueNum<=6;hueNum++){
+          setHue(hueNum, true, 45000,255,255);
+          delay(1000);
+          }
+        }
+        if (tempF>55 && tempF <60){
+          for(hueNum=0;hueNum<=6;hueNum++){
+          setHue(hueNum, true, 22500,255,255);
+          delay(1000);
+          }
+        }
+      }
     }
-    if(newPosition %6==5){
+    if(newPosition %6==5){//return to previous screen
       display.setCursor(0,0);
-      // display.setTextSize(2);
       display.setTextColor(WHITE);
-      // display.printf("AUTO\n");
       display.setTextSize(1);
       display.printf("Presentation\n   Start Presentation   Cont. Presentation   End Presentation\nMorning Glory\nTemperature Read\n");
       display.setTextColor(BLACK,WHITE);
@@ -655,10 +669,6 @@ void loop(){
     display.clearDisplay();
     break;
   }
-
-
-
-
 }
 // //functions 
 void selection(int menuNum){
@@ -674,9 +684,8 @@ void ALLOFF(){
   for(hueNum=1;hueNum<=6;hueNum++){
     setHue(hueNum,false,0x008080,255,255);// chose a great color, max brightness, usually paired with all on
     delay(100);
-    }
+  }
 }
-// }
   
 
   
