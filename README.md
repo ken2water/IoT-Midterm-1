@@ -1,4 +1,4 @@
-#ReadME.Md for IoT Cohort 16 Midterm 1 project. 
+# ReadME.Md for IoT Cohort 16 Midterm 1 project. 
 ## What the project does
 The project allows user to manipulate their smart environments, to include smart Hue lights and smart wemo power adaptors.  The wrist mounted design allows for users to have ease of control while having their hands available.  
 
